@@ -21,6 +21,30 @@ config(['$routeProvider', function($routeProvider) {
 }]).
 config(function ($httpProvider) {
    $httpProvider.interceptors.push('AuthInterceptor');
-});
+}).
+controller("myCtrl", ["$http", function($http){
+        var self = this;
+        self.user = {
+            name: "",
+            password: ""
+        };
+        
+        self.hey = function(){
+            console.log("heyeheye");
+        };
+        
+        self.create = function (){
+            console.log("hey")
+             $http.post('api/user', self.user)
+                            .success(function (data, status, headers, config) {
+                                console.log("Workingggggggggg");
+                            })
+                            .error(function (data, status, headers, config) {
+                                console.log("doesn't worrrrkkkkkingggsssss");
+                            })
+        };
+        
+        
+}]);
 
 
