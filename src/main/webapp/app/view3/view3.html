@@ -1,5 +1,22 @@
 <h3>This is the partial for view 3.</h3>
 <div>
-  <p>Data from server (Admins only) <b style="color: darkblue">{{data.message}}</b></p>
-  <p>Server Time: <b style="color: darkblue">{{data.serverTime}}</b></p>
+    <p>Data from server (Admins only) <b style="color: darkblue">{{data.message}}</b></p>
+    <p>Server Time: <b style="color: darkblue">{{data.serverTime}}</b></p>
+
+<form>
+    Søgetekst <input type="text" style="width:8em;" placeholder="Påkrævet"><br>
+    Søgemulighed<select>
+        <option value="Almindelig">Almindelig</option>
+        <option value="CVR">CVR</option>
+        <option value="Navn">Navn</option>
+        <option value="Produktionsenhed">Produktionsenhed</option>
+        <option value="Telefonnummer">Telefonnummer</option>
+    </select><br>
+    Land<select>
+        <option value="DK">DK</option>
+        <option value="NO">NO</option>
+    </select>
+</form><br>
+
+<button onclick="getData()"class="btn btn-success">Slå op</button>
 </div>

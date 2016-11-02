@@ -16,6 +16,10 @@ angular.module('myApp.view3', ['ngRoute'])
             })
             .error(function (data, status, headers, config) {
               
-             });
- 
-});
+             })
+})
+var xhr = new XMLHttpRequest();
+function getData() {
+    xhr.open("GET", "http://cvrapi.dk/api?vat=3167%208021&country=dk/", false);
+    xhr.send();
+};
