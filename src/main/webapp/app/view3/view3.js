@@ -10,7 +10,7 @@ angular.module('myApp.view3', ['ngRoute'])
 }])
 
 .controller('View3Ctrl', function($http,$scope) {
-  $http.get('api/demoadmin')
+  $http.get('api/user')
             .success(function (data, status, headers, config) {
               $scope.data = data;
             })
@@ -18,8 +18,13 @@ angular.module('myApp.view3', ['ngRoute'])
               
              })
 })
-var xhr = new XMLHttpRequest();
 function getData() {
-    xhr.open("GET", "http://cvrapi.dk/api?vat=3167%208021&country=dk/", false);
-    xhr.send();
+  $http.get('http://cvrapi.dk/api?vat=3167%208021&country=dk')
+            .success(function (data, status, headers, config) {
+              $scope.data = data;
+              console.log(data[0])
+            })
+            .error(function (data, status, headers, config) {
+              console.log("nope")
+             })
 };
