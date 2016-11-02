@@ -39,34 +39,34 @@
     </head>
     <body ng-app="myApp">
         <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.create()" align="right">
-                                <!-- Trigger the modal with a button -->
-                                <button type="button" class="btn" data-toggle="modal" data-target="#createUser">Create User</button>
-                                
-                                <!-- Modal -->
-                                <div id="createUser" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn" data-toggle="modal" data-target="#createUser">Create User</button>
 
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                  
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Enter Data About User</h4>
-                                            </div>
-           
-                                            <div class="modal-body">
-                                                <input id="name" type="text" placeholder="Insert username" ng-model="ctrl.user.userName">
-                                                <input id="password" type="text" placeholder="Insert password" ng-model="ctrl.user.passwordHash">
+            <!-- Modal -->
+            <div id="createUser" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <input type="submit" id="createNewUser" class="submit btn btn-default" value="Submit">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Enter Data About User</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <input id="name" type="text" placeholder="Insert username" ng-model="ctrl.user.userName">
+                            <input id="password" type="text" placeholder="Insert password" ng-model="ctrl.user.passwordHash">
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="createNewUser" class="submit btn btn-default" value="Submit">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="container"  >
             <nav class="navbar navbar-static-top  navbar-default " role="navigation" ng-controller="AppLoginCtrl">
                 <div class="container">
@@ -88,7 +88,7 @@
                             <li><a href="#/view5">All Users</a></li>
                             <li><a href="#/view6">Login Section</a></li>
                         </ul>
-                        
+
                         <div>
                             <form class="navbar-form navbar-right" role="form" ng-show="!isAuthenticated" ng-submit="login()"  >
                                 <div class="form-group">
@@ -101,16 +101,16 @@
                                 </div>
                                 <button type="submit" class="btn btn-success">Sign in</button>
                             </form>
-                            
-                            
 
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,7 +145,5 @@
             <button class="btn btn-primary" type="button" ng-click="ok()" autofocus>OK</button>
             </div>
         </script>
-
-
     </body>
 </html>
