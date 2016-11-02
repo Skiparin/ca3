@@ -2,11 +2,13 @@ package facades;
 
 import security.IUserFacade;
 import entity.User;
+import static java.util.Collections.list;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import security.IUser;
 import security.PasswordStorage;
 
@@ -65,4 +67,9 @@ public class UserFacade implements IUserFacade {
         }
     }
 
+    public List<User> getAllUsers() {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<User> users = (TypedQuery<User>) em.createNativeQuery("SELECT * FROM seed_user", User.class);
+        return users.getResultList();
+    }
 }
