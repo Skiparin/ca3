@@ -51,7 +51,7 @@ public class UserFacade implements IUserFacade {
             IUser temp;
             temp = getUserByUserId(userName);
             User user = new User(userName, password);
-            if (temp != null) {
+            if (temp == null) {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
                 em.persist(user);

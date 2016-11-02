@@ -24,18 +24,12 @@ config(function ($httpProvider) {
 }).
 controller("myCtrl", ["$http", function($http){
         var self = this;
-        self.user = {
-            name: "",
-            password: ""
-        };
-        
-        self.hey = function(){
-            console.log("heyeheye");
-        };
+        self.user = {userName:"",
+            passwordHash:""}
         
         self.create = function (){
-            console.log("hey")
-             $http.post('api/user', self.user)
+            console.log(self.user.userName + self.user.passwordHash + "fix plx");
+             $http.post('api/demoall/user', self.user)
                             .success(function (data, status, headers, config) {
                                 console.log("Workingggggggggg");
                             })
