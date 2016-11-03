@@ -1,5 +1,6 @@
 package facades;
 
+import entity.Role;
 import security.IUserFacade;
 import entity.User;
 import java.util.List;
@@ -51,6 +52,7 @@ public class UserFacade implements IUserFacade {
             IUser temp;
             temp = getUserByUserId(userName);
             User user = new User(userName, password);
+            user.addRole(new Role("User"));
             if (temp == null) {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
