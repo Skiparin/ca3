@@ -40,7 +40,7 @@
     <body ng-app="myApp">
         <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.create()" align="right">
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn" data-toggle="modal" data-target="#createUser">Create User</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">Create User</button>
 
             <!-- Modal -->
             <div id="createUser" class="modal fade" role="dialog">
@@ -101,19 +101,6 @@
                                 </div>
                                 <button type="submit" class="btn btn-success">Sign in</button>
                             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <div class="navbar-right" ng-show="isAuthenticated">
 
                                 <p class="navbar-text">Logged on as: {{username}}</p>
