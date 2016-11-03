@@ -52,10 +52,11 @@ public class UserFacade implements IUserFacade {
             IUser temp;
             temp = getUserByUserId(userName);
             User user = new User(userName, password);
-            user.addRole(new Role("User"));
             if (temp == null) {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
+                Role role = em.find(Role.class, "User");
+                user.addRole(role);
                 em.persist(user);
                 em.getTransaction().commit();
                 return user;

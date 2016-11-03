@@ -33,6 +33,8 @@ public class makeTestUsers {
         em.persist(admin);
         em.persist(both);
         em.getTransaction().commit();
+        UserFacade uf = new UserFacade(Persistence.createEntityManagerFactory("pu_development"));
+        uf.createUser("tests", "test");
         System.out.println("Created TEST Users");
       }
     } catch (Exception ex) {
