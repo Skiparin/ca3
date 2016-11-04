@@ -64,7 +64,7 @@ angular.module('myApp', [
                                 console.log(("get offf me turf"));
                             })
                             .error(function (data, status, headers, config) {
-                                console.log("suck a dick!");
+                                console.log("an errror occurred pleaase try again");
                             });
                 };
             }]);
