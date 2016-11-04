@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.Role</class>
     <class>entity.User</class>
+    <class>entity.Currency</class>
+    <class>entity.Rate</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/seed?zeroDateTimeBehavior=convertToNull"/>
@@ -17,6 +19,9 @@
   <persistence-unit name="pu_development" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.Role</class>
+    <class>entity.Currency</class>
+    <class>entity.Rate</class>
+    <class>entity.User</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ca3?zeroDateTimeBehavior=convertToNull"/>
