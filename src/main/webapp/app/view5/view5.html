@@ -1,4 +1,11 @@
 <html>
     <h1>View 5</h1>
-
+    <body ng-app="myApp.view5">
+        <table ng-controller="View5Ctrl" border="1">
+            <tr ng-repeat="users in userList">
+                <td>{{users.userName}}</td>
+                <td>{{users.roleName}}</td>
+            </tr>
+        </table>
+    </body>
 </html>

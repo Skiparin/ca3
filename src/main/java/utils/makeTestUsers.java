@@ -44,7 +44,6 @@ public class makeTestUsers {
                 IUser usertest =  UF.getUserByUserId("Ørvur");
                 System.out.println(user.getRoles().get(0).getRoleName());
                 System.out.println(UF.getAllUsers().get(0).getRoles().get(0).getRoleName());
-
             }
         } catch (Exception ex) {
             Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
