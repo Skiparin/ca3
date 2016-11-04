@@ -4,7 +4,7 @@
         <p>Data from server (Admins only) <b style="color: darkblue">{{data.message}}</b></p>
         <p>Server Time: <b style="color: darkblue">{data.serverTime}}</b></p>
 
-        <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.getData()" align="right">
+        <div ng-controller="myCtrl as ctrl">
             Søgetekst <input type="text" style="width:8em;" placeholder="Påkrævet" ng-model="ctrl.search"><br>
             Søgemulighed<select>
                 <option value="Almindelig">Almindelig</option>
@@ -17,13 +17,74 @@
                 <option value="DK">DK</option>
                 <option value="NO">NO</option>
             </select>
-            <button onclick="ctrl.getData()" class="btn btn-success">Slå op</button>
-            {{ctrl.data}}
-        </form>
+            <form ng-submit="ctrl.getData()">
+                <button class="btn btn-success">Slå op</button>
+            </form>
+            <table ng-repeat="key in ctrl.keys" ng-hide="ctrl.showpu">
+                <tr ng-switch ="key">
+                    <td ng-if="key !== 'productionunits'">{{key}}:&emsp;</td>
+                    <td ng-switch-when="productionunits"></td>
+                    <td ng-switch-when="owners">{{ctrl.array[$index][0].name}}</td>
+                    <td ng-switch-default>{{ctrl.array[$index]}}</td>
+                </tr>
+            </table>
+            <table ng-repeat="unit in ctrl.data.productionunits" ng-hide="ctrl.showpu">
+                <tr>
+                    <td>
+                        <form ng-submit="ctrl.showPU($index)">
+                            <button>{{unit.name}}</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <table ng-repeat="prounit in ctrl.unitKeys" ng-show="ctrl.showpu">
+                <tr>
+                    <td>      
+                        {{prounit}}
+                        {{ctrl.unitArray[$index]}}
+                    </td>
+                </tr>
+            </table>
+            <form ng-submit="ctrl.return()" ng-show="ctrl.showpu">
+                <button class="btn btn-success">Tilbage</button>
+            </form>
+            <form ng-submit="ctrl.calc()">
+                <select ng-model="ctrl.from">
+                    <option ng-repeat="from in ctrl.testArray" value="{{from.rate}}">{{from.desc}}</option>
+                </select>
+                <select ng-model="ctrl.to">
+                    <option ng-repeat="from in ctrl.testArray" value="{{from.rate}}">{{from.desc}}</option>
+                </select>
+                <input type="text" style="width:8em;" placeholder="amount" ng-model="ctrl.amount">
+                <button class="btn btn-success">calculate</button>
+            </form>
+            <!--<tr><td>{{ctrl.data.vat}}<td></tr>
+            {{ctrl.data.name}}
+            {{ctrl.data.address}}
+            {{ctrl.data.zipcode}}
+            {{ctrl.data.city}}
+            {{ctrl.data.cityname}}
+            {{ctrl.data.protected}}
+            {{ctrl.data.phone}}
+            {{ctrl.data.email}}
+            {{ctrl.data.fax}}
+            {{ctrl.data.startdate}}
+            {{ctrl.data.enddate}}
+            {{ctrl.data.employees}}
+            {{ctrl.data.addressco}}
+            {{ctrl.data.industrycode}}
+            {{ctrl.data.industrydesc}}
+            {{ctrl.data.companycode}}
+            {{ctrl.data.companydesc}}
+            {{ctrl.data.creditstartdate}}
+            {{ctrl.data.creditbankrupt}}
+            {{ctrl.data.creditstatus}} -->
 
-   <!--     <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.getData()" align="right">
-            <button onclick="ctrl.getData()" class="btn btn-success">Slå op</button>
-            {{ctrl.data}}
-        </form> -->
+        </div>
+
+        <!--     <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.getData()" align="right">
+                 <button onclick="ctrl.getData()" class="btn btn-success">Slå op</button>
+                 {{ctrl.data}}
+             </form> -->
     </div>
 </div>

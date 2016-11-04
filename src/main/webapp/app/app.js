@@ -39,10 +39,41 @@ angular.module('myApp', [
                                 console.log("doesn't worrrrkkkkkingggsssss");
                             })
                 };
-
+                self.showpu = false;
+                self.unit;
+                self.unitKeys = [];
+                self.unitArray = [];
                 self.search = "";
-                self.data = "hey";
-
+                self.data = {};
+                self.keys = [];
+                self.array = Object.keys(self.data).map(function (key){ return self.data[key];});
+                self.testArray = [{desc:"dkk",rate:1},{desc:"EURO",rate:7.44}]
+                self.from;
+                self.to;
+                self.amount;
+                self.calc = function(){
+                    console.log("calc");
+                    console.log(self.from);
+                    console.log(self.to);
+                    console.log(self.amount);
+                    self.derudaf = self.from/self.to*self.amount;
+                    console.log(self.derudaf)
+                } 
+                
+                self.showPU = function(nr){
+                    console.log(nr);
+                    self.showpu = true;
+                    self.unit = nr;
+                    self.unitKeys = Object.keys(self.data.productionunits[nr])
+                    self.unitArray = Object.keys(self.data.productionunits[nr]).map(function (key){ return self.data.productionunits[nr][key];});
+                    console.log(self.unitKeys)
+                    console.log(self.data.productionunits)
+                }
+                
+                self.return = function(){
+                    self.showpu = false;
+                }
+                
                 self.getData = function getData() {
                     $http({url: 'http://cvrapi.dk/api?search=' + self.search + '&country=dk',
                         skipAuthorization: true,
@@ -50,13 +81,14 @@ angular.module('myApp', [
                     })
                             .success(function (data, status, headers, config) {
                                 self.data = data;
+                                self.keys = Object.keys(data);
+                                self.array = Object.keys(self.data).map(function (key){ return self.data[key];});
                                 console.log(data);
                             })
                             .error(function (data, status, headers, config) {
                                 console.log("nope");
                             })
                 };
-
 
             }]);
 
