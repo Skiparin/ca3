@@ -8,13 +8,13 @@ angular.module('myApp.view5', ['ngRoute'])
     controller: 'View5Ctrl'
   });
 }])
-.controller('View5Ctrl', function($http,$scope) {
+.controller('View5Ctrl', function($http,$scope, $location) {
   $http.get('api/admin')
             .success(function (data, status, headers, config) {
               $scope.data = data;
             })
             .error(function (data, status, headers, config) {
-              
-             })
+              $location.path('/view1');
+             });
 })
 ;

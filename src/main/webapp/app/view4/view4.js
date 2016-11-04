@@ -8,12 +8,12 @@ angular.module('myApp.view4', ['ngRoute'])
     controller: 'View4Ctrl'
   })
   }])
-  .controller('View4Ctrl', function($http,$scope) {
+  .controller('View4Ctrl', function($http,$scope, $location) {
   $http.get('api/user')
             .success(function (data, status, headers, config) {
               $scope.data = data;
             })
             .error(function (data, status, headers, config) {
-              
-             })
+              $location('/view1');
+             });
 });
