@@ -41,8 +41,9 @@ public class makeTestUsers {
                 em.getTransaction().commit();
                 System.out.println("Created TEST Users");
                
-                IUser usertest =  UF.getUserByUserId("Ørvur");
-                System.out.println(user.getRoles().get(0).getRoleName());
+                //IUser usertest =  UF.getUserByUserId("Ørvur");
+                //System.out.println(user.getRoles().get(0).getRoleName());
+                System.out.println(UF.getAllUsers().get(0).getUserName());
                 System.out.println(UF.getAllUsers().get(0).getRoles().get(0).getRoleName());
             }
         } catch (Exception ex) {

@@ -1,10 +1,13 @@
 <html>
     <h1>View 5</h1>
-    <body ng-app="myApp.view5">
-        <table ng-controller="View5Ctrl" border="1">
-            <tr ng-repeat="users in userList">
-                <td>{{users.userName}}</td>
-                <td>{{users.roleName}}</td>
+    <body  ng-app="myApp.view5">
+        <table  ng-controller="View5Ctrl as ctrl">
+            <tr ng-repeat="users in ctrl.data">
+                <td>{{users.userName}}&emsp;</td>
+                <td ng-repeat="users in ctrl.data.users"></td>
+                <td>{{users.roles[0].roleName}}&emsp;</td>
+                <td>{{users.roles[1].roleName}}</td>
+                
             </tr>
         </table>
     </body>
