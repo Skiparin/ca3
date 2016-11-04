@@ -13,6 +13,7 @@ import javax.persistence.TypedQuery;
 import security.IUser;
 
 public class makeTestUsers {
+
     //Only for initial testing REMOVE BEFORE PRODUCTION
     //Run this file to setup the users required to use the initial version of the seed
     public static void main(String[] args) {
@@ -39,7 +40,7 @@ public class makeTestUsers {
                 em.persist(both);
                 em.getTransaction().commit();
                 System.out.println("Created TEST Users");
-               
+
                 //IUser usertest =  UF.getUserByUserId("Ørvur");
                 //System.out.println(user.getRoles().get(0).getRoleName());
                 System.out.println(UF.getAllUsers().get(0).getUserName());
@@ -51,8 +52,6 @@ public class makeTestUsers {
         } finally {
             em.close();
         }
-            }
-
-    
+    }
 
 }

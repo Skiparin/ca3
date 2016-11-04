@@ -17,6 +17,10 @@ public class UserFacade implements IUserFacade {
 
     EntityManagerFactory emf;
 
+    public UserFacade() {
+    }
+
+    
     public UserFacade(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -44,6 +48,20 @@ public class UserFacade implements IUserFacade {
         try {
             return user != null && PasswordStorage.verifyPassword(password, user.getPassword()) ? user.getRolesAsStrings() : null;
         } catch (PasswordStorage.CannotPerformOperationException | PasswordStorage.InvalidHashException ex) {
+            Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    public User deleteUserById(String userName) {
+        try {
+            EntityManager em = getEntityManager();
+            em.getTransaction().begin();
+            User user = em.find(User.class, userName);
+            em.remove(user);
+            em.getTransaction().commit();
+            return user;
+        } catch (Exception ex) {
             Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
