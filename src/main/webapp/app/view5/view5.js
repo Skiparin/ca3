@@ -15,8 +15,7 @@ angular.module('myApp.view5', ['ngRoute'])
   $http.get('api/admin/users')
             .success(function (data, status, headers, config) {
               self.data = data;
-              console.log(self.data);
-              console.log(data);
+      console.log(data);
             })
             .error(function (data, status, headers, config) {
               $location('/view1');
