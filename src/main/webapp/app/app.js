@@ -56,10 +56,10 @@ angular.module('myApp', [
                                 console.log("nope");
                             })
                 };
-                self.user = {userName: "user"}
+                self.user = {userName: ""}
                 self.delete = function () {
                     console.log(self.user.userName + " nononono");
-                    $http.delete('api/admin/user/user', self.user)
+                    $http.delete('api/admin/user/tests', self.user)
                             .success(function (data, status, headers, config) {
                                 console.log(("get offf me turf"));
                             })
