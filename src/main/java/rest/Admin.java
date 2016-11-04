@@ -12,11 +12,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import entity.User;
 import javax.ws.rs.Consumes;
 
 @Path("admin")
-@RolesAllowed("Admin")
+//@RolesAllowed("Admin")
 public class Admin {
 
     private static final Gson gson = new Gson();
@@ -30,11 +29,12 @@ public class Admin {
     }
 
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/user/{id}")
-    public User deleteUser(@PathParam("id") String userName) {
-        User u = facade.deleteUserById(userName);
-        return u;
+    @Path("/user/{id}") 
+    public String deleteUser(@PathParam("id") String userName) {
+        System.out.println("heyehe");
+        facade.deleteUserById(userName);
+        return "worked";
     }
 }

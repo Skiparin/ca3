@@ -38,6 +38,9 @@
 
     </head>
     <body ng-app="myApp">
+        <form ng-controller="myCtrl as deleteCtrl" ng-submit="deleteCtrl.delete()" align="right">
+            <input type="submit" id="deleteUser" class="submit btn alert-danger" value="Delete">
+        </form>
         <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.create()" align="right">
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">Create User</button>

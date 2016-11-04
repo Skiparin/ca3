@@ -37,7 +37,7 @@ angular.module('myApp', [
                             })
                             .error(function (data, status, headers, config) {
                                 console.log("doesn't worrrrkkkkkingggsssss");
-                            })
+                            });
                 };
 
                 self.search = "";
@@ -56,8 +56,15 @@ angular.module('myApp', [
                                 console.log("nope");
                             })
                 };
-
-
+                self.user = {userName: "user"}
+                self.delete = function () {
+                    console.log(self.user.userName + " nononono");
+                    $http.delete('api/admin/user/user', self.user)
+                            .success(function (data, status, headers, config) {
+                                console.log(("get offf me turf"));
+                            })
+                            .error(function (data, status, headers, config) {
+                                console.log("suck a dick!");
+                            });
+                };
             }]);
-
-
