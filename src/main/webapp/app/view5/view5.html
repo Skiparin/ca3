@@ -1,12 +1,17 @@
 <html>
     <h1>View 5</h1>
-    <body ng-app="myApp.view5" ng-controller="View5Ctrl as ctrl">
-        <table>
+    <body ng-app="myApp.view5">
+        <table ng-controller="View5Ctrl as ctrl">
             <tr ng-repeat="users in ctrl.data">
                 <td>{{users.userName}}&emsp;</td>
                 <td ng-repeat="users in ctrl.data.users"></td>
                 <td>{{users.roles[0].roleName}}&emsp;</td>
                 <td>{{users.roles[1].roleName}}</td>
+                <td>
+                    <form ng-controller="View5Ctrl as deleteCtrl" ng-submit="deleteCtrl.delete($index)" align="right" style="padding: 0.5em">
+                        <input type="submit" id="deleteUser" class="submit btn alert-danger" value="Delete">
+                    </form>        
+                </td>
             </tr>
         </table>
     </body>

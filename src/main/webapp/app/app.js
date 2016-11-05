@@ -41,7 +41,6 @@ angular.module('myApp', [
                 };
 
                 self.search = "";
-                self.data = "hey";
 
                 self.getData = function getData() {
                     $http({url: 'http://cvrapi.dk/api?search=' + self.search + '&country=dk',
@@ -55,16 +54,5 @@ angular.module('myApp', [
                             .error(function (data, status, headers, config) {
                                 console.log("nope");
                             })
-                };
-                self.user = {userName: ""}
-                self.delete = function () {
-                    console.log(self.user.userName + " nononono");
-                    $http.delete('api/admin/user/tests', self.user)
-                            .success(function (data, status, headers, config) {
-                                console.log(("get offf me turf"));
-                            })
-                            .error(function (data, status, headers, config) {
-                                console.log("an errror occurred pleaase try again");
-                            });
                 };
             }]);
