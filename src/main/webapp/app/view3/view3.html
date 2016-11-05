@@ -48,16 +48,21 @@
             <form ng-submit="ctrl.return()" ng-show="ctrl.showpu">
                 <button class="btn btn-success">Tilbage</button>
             </form>
+            
+            
             <form ng-submit="ctrl.calc()">
+                <br>
                 <select ng-model="ctrl.from">
                     <option ng-repeat="from in ctrl.testArray" value="{{from.rate}}">{{from.desc}}</option>
                 </select>
                 <select ng-model="ctrl.to">
                     <option ng-repeat="from in ctrl.testArray" value="{{from.rate}}">{{from.desc}}</option>
                 </select>
-                <input type="text" style="width:8em;" placeholder="amount" ng-model="ctrl.amount">
+                <br>
+                <input type="text" style="width:8em;" placeholder="Amount" ng-model="ctrl.amount">
+                <input type="text" placeholder="Result" value="{{ctrl.result}}" readonly>
+                <br>
                 <button class="btn btn-success">calculate</button>
-                {{ctrl.derudaf}}
             </form>
             <!--<tr><td>{{ctrl.data.vat}}<td></tr>
             {{ctrl.data.name}}

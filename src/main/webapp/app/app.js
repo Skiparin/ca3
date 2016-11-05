@@ -47,17 +47,15 @@ angular.module('myApp', [
                 self.data = {};
                 self.keys = [];
                 self.array = Object.keys(self.data).map(function (key){ return self.data[key];});
-                self.testArray = [{desc:"dkk",rate:1},{desc:"EURO",rate:7.44}]
+                
+                self.testArray = [{desc:"dkk",rate:1},{desc:"euro",rate:7.44}]   
                 self.from;
                 self.to;
                 self.amount;
+                
                 self.calc = function(){
-                    console.log("calc");
-                    console.log(self.from);
-                    console.log(self.to);
-                    console.log(self.amount);
-                    self.derudaf = self.from/self.to*self.amount;
-                    console.log(self.derudaf)
+                    self.result = self.from/self.to*self.amount;
+                    self.result = self.result.toFixed(2);
                 } 
                 
                 self.showPU = function(nr){
