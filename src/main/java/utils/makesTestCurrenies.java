@@ -24,25 +24,17 @@ public class makesTestCurrenies {
 
         EntityManager em = Persistence.createEntityManagerFactory("pu_development").createEntityManager();
 
-        try {
-            System.out.println("Creating TEST Currencies");
-            if (em.find(Currency.class, "DKK") == null) {
                 em.getTransaction().begin();
-                Currency currency = new Currency("Dkk", "yolo");
-                Rate rate = new Rate("10-10-2016", "100");
+                Currency currency = new Currency();
+                currency.setCode("DKK");
+                currency.setDesc("DANMARK");
+                Rate rate = new Rate();
+                rate.setDate("10-10-2016");
+                rate.setRate("1.101");
                 currency.addRate(rate);
+                rate.setCurrency(currency);
                 em.persist(currency);
                 em.persist(rate);
                 em.getTransaction().commit();
-                UserFacade uf = new UserFacade(Persistence.createEntityManagerFactory("pu_development"));
-                uf.createUser("tests", "test");
-                System.out.println("Created TEST Users");
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
     }
 }

@@ -21,7 +21,7 @@ public class Currency implements Serializable {
 
     @Id
     private String code;
-    private String desc;
+    private String description;
 
     @OneToMany(mappedBy = "currency")
     private List<Rate> rates = new ArrayList();
@@ -31,7 +31,7 @@ public class Currency implements Serializable {
 
     public Currency(String code, String desc) {
         this.code = code;
-        this.desc = desc;
+        this.description = desc;
     }
     
     public void addRate(Rate rate){
@@ -52,11 +52,11 @@ public class Currency implements Serializable {
     }
 
     public String getDesc() {
-        return desc;
+        return description;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.description = desc;
     }
 
     public List<Rate> getRates() {
