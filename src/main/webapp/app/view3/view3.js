@@ -12,26 +12,26 @@ angular.module('myApp.view3', ['ngRoute'])
 <<<<<<< HEAD
         .controller('View3Ctrl', function ($http, $scope) {
             var self = this;
-            $http.get('api/user')
+            $http.get('http://cvrapi.dk/api?search=Hej&country=dk')
                     .success(function (data, status, headers, config) {
                         $scope.data = data;
                     })
                     .error(function (data, status, headers, config) {
 
-                    })
+                    });
 
-                    $scope.data = "data";
+            $scope.data = "data";
 
-            self.getData = function getData() {
-                $http.get('http://cvrapi.dk/api?search=Hej&country=dk')
-                        .success(function (data, status, headers, config) {
-                            $scope.data = data;
-                            console.log(data);
-                        })
-                        .error(function (data, status, headers, config) {
-                            console.log("nope");
-                        })
-            };
+//            self.getData = function getData() {
+//                $http.get('http://cvrapi.dk/api?search=Hej&country=dk')
+//                        .success(function (data, status, headers, config) {
+//                            $scope.data = data;
+//                            console.log(data);
+//                        })
+//                        .error(function (data, status, headers, config) {
+//                            console.log("nope");
+//                        })
+//            };
         })
 =======
 .controller('View3Ctrl', function($http,$scope, $location) {
