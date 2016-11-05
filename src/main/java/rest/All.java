@@ -6,6 +6,7 @@
 package rest;
 
 import com.google.gson.Gson;
+import entity.Rate;
 import facades.UserFacade;
 import javax.persistence.Persistence;
 import javax.ws.rs.Consumes;
@@ -17,6 +18,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import entity.User;
+import facades.RateFacade;
+import java.util.List;
 
 /**
  * REST Web Service
@@ -58,6 +61,15 @@ public class All {
         System.out.println(u.getUserName() + u.getPassword());
         facade.createUser(u.getUserName(), u.getPassword());
         return "worked";
+    }
+    
+        @Path("/rate")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String createUser() {
+        RateFacade rf = new RateFacade(Persistence.createEntityManagerFactory("pu_development"));
+        List<Rate> rates = rf.getRates();
+        return gson.toJson(rates);
     }
   
 
