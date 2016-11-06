@@ -17,7 +17,22 @@ angular.module('myApp.view4', ['ngRoute'])
                     .error(function (data, status, headers, config) {
 
                     })
+            
+            self.data = [];
 
+            self.getCur = function () {
+                $http.get('api/demoall/rate')
+                        .success(function (data, status, headers, config) {
+                            self.data = data;
+                            console.log(data);
+                        })
+                        .error(function (data, status, headers, config) {
+                            console.log("doesn't worrrrkkkkkingggsssss");
+                        });
+            };
+            
+            self.data
+            
             self.testArray = [{desc: "dkk", rate: 1}, {desc: "euro", rate: 7.44}]
             self.from;
             self.to;
