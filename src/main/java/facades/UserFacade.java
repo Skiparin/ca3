@@ -20,6 +20,9 @@ public class UserFacade implements IUserFacade {
         this.emf = emf;
     }
 
+    public UserFacade() {
+    }
+
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
