@@ -24,13 +24,4 @@ public class User {
         return "{\"message\" : \"REST call accesible by only authenticated USERS\"}";
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String createUser(String user) {
-        entity.User u = (entity.User) gson.fromJson(user, entity.User.class);
-        facade.createUser(u.getUserName(), u.getPassword());
-        return "worked";
-    }
-
 }

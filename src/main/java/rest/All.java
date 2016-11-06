@@ -66,22 +66,6 @@ public class All {
         return "worked";
     }
     
-        @Path("/rate")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String createUser() {
-        RateFacade rf = new RateFacade(Persistence.createEntityManagerFactory("pu_development"));
-        List<Rate> rates = rf.getRates();
-        return gson.toJson(rates);
-    }
 
-    @DELETE
-    //@Consumes(MediaType.TEXT_PLAIN)
-    //@Produces(MediaType.TEXT_PLAIN)
-    @Path("/delete")
-    public User deleteUser(String userName) {
-        System.out.println("heyehe");
-        User u = facade.deleteUserById(userName);
-        return u;
-    }
+    
 }
