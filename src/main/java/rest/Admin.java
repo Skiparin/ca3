@@ -45,7 +45,6 @@ public class Admin {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/user/{id}") 
     public String deleteUser(@PathParam("id") String userName) {
-        System.out.println("heyehe");
         facade.deleteUserById(userName);
         return "worked";
     }

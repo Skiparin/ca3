@@ -6,7 +6,7 @@ angular.module('myApp.view4', ['ngRoute'])
   $routeProvider.when('/view4', {
     templateUrl: 'app/view4/view4.html',
     controller: 'View4Ctrl'
-  })
+  });
   }])
   .controller('View4Ctrl', function($http,$scope, $location) {
   $http.get('api/user')
