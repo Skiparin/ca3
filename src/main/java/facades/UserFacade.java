@@ -3,11 +3,13 @@ package facades;
 import entity.Role;
 import security.IUserFacade;
 import entity.User;
+import static java.util.Collections.list;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import security.IUser;
 import security.PasswordStorage;
 
@@ -15,6 +17,10 @@ public class UserFacade implements IUserFacade {
 
     EntityManagerFactory emf;
 
+    public UserFacade() {
+    }
+
+    
     public UserFacade(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -47,15 +53,30 @@ public class UserFacade implements IUserFacade {
         }
     }
 
+    public User deleteUserById(String userName) {
+        try {
+            EntityManager em = getEntityManager();
+            em.getTransaction().begin();
+            User user = em.find(User.class, userName);
+            em.remove(user);
+            em.getTransaction().commit();
+            return user;
+        } catch (Exception ex) {
+            Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
     public User createUser(String userName, String password) {
         try {
             IUser temp;
             temp = getUserByUserId(userName);
             User user = new User(userName, password);
-            user.addRole(new Role("User"));
             if (temp == null) {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
+                Role role = em.find(Role.class, "User");
+                user.addRole(role);
                 em.persist(user);
                 em.getTransaction().commit();
                 return user;
@@ -67,4 +88,9 @@ public class UserFacade implements IUserFacade {
         }
     }
 
+    public List<User> getAllUsers() {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<User> users = (TypedQuery<User>) em.createNativeQuery("SELECT * FROM seed_user", User.class);
+        return users.getResultList();
+    }
 }
