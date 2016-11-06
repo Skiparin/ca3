@@ -72,7 +72,7 @@ public class InitialSeedRestIntegrationTest {
             .contentType("application/json")
             .header("Authorization", "Bearer " + securityToken)
             .when()
-            .get("/api/demoadmin").then()
+            .get("/api/admin").then()
             .statusCode(200)
             .body("message", equalTo("REST call accesible by only authenticated ADMINS"))
             .body("serverTime",notNullValue());
@@ -85,7 +85,7 @@ public class InitialSeedRestIntegrationTest {
             .contentType("application/json")
             .header("Authorization", "Bearer " + securityToken)
             .when()
-            .get("/api/demouser").then()
+            .get("/api/user").then()
             .statusCode(200)
             .body("message", equalTo("REST call accesible by only authenticated USERS"));
   }
@@ -96,7 +96,7 @@ public class InitialSeedRestIntegrationTest {
     given()
             .contentType("application/json")
             .when()
-            .get("/api/demouser").then()
+            .get("/api/user").then()
             .statusCode(401)
             .body("error.message", equalTo("No authorization header provided"));
   }
@@ -107,7 +107,7 @@ public class InitialSeedRestIntegrationTest {
     given()
             .contentType("application/json")
             .when()
-            .get("/api/demoadmin").then()
+            .get("/api/admin").then()
             .statusCode(401)
             .body("error.message", equalTo("No authorization header provided"));
 
