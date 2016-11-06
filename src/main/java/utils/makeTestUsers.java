@@ -42,7 +42,7 @@ public class makeTestUsers {
                 em.persist(both);
                 em.getTransaction().commit();
                 System.out.println("Created TEST Users");
-               
+
                 //IUser usertest =  UF.getUserByUserId("Ørvur");
                 //System.out.println(user.getRoles().get(0).getRoleName());
                 System.out.println(UF.getAllUsers().get(0).getUserName());
@@ -56,9 +56,6 @@ public class makeTestUsers {
         } finally {
             em.close();
         }
-        
     }
-
-    
 
 }

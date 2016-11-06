@@ -33,6 +33,10 @@ public class UserFacadeTest {
     
     @AfterClass
     public static void tearDownClass() {
+        UserFacade UF = new UserFacade(Persistence.createEntityManagerFactory("pu_development"));
+        UF.deleteUserById("User");
+        UF.deleteUserById("User1");
+        UF.deleteUserById("User2");
     }
     
     @Before
@@ -69,13 +73,14 @@ public class UserFacadeTest {
     public void testGetAllUsers() {
         UF.createUser("User","test");
         List<User> UL = UF.getAllUsers();
-        User user = UL.get(0);
+        User user = UL.get(2);
         assertEquals(user.getUserName(), "User");
     }
     
     @Test
     public void testDeleteUserById() {
-        UF.createUser("User", "test");
-        assertEquals(UF.getUserByUserId("User"), "User");
+        UF.createUser("User2", "test");
+        User user =  UF.deleteUserById("User");
+        assertEquals(user.getUserName(), "User");
     }
 }
