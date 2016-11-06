@@ -37,7 +37,7 @@ angular.module('myApp', [
                             })
                             .error(function (data, status, headers, config) {
                                 console.log("doesn't worrrrkkkkkingggsssss");
-                            })
+                            });
                 };
                 self.showpu = false;
                 self.unit;
@@ -89,5 +89,3 @@ angular.module('myApp', [
                 };
 
             }]);
-
-
