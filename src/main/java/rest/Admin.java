@@ -27,7 +27,7 @@ public class Admin {
     @Path("/users")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String createUser(String user) throws PasswordStorage.CannotPerformOperationException {
+    public String getAllUsers() {
         List<User> users = facade.getAllUsers();
         String j = gson.toJson(users);
         return (j);

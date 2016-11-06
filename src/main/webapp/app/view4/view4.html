@@ -1,0 +1,30 @@
+<div div ng-controller="View4Ctrl as ctrl">
+    <form ng-submit="ctrl.calc()">
+        <select ng-model="ctrl.from">
+            <option ng-repeat="from in ctrl.data" value="{{from[2]}}">{{from[3]}}</option>
+        </select>
+        <select ng-model="ctrl.to">
+            <option ng-repeat="from in ctrl.data" value="{{from[2]}}">{{from[3]}}</option>
+        </select>
+        <br>
+        <input type="text" style="width:8em;" placeholder="Amount" ng-model="ctrl.amount">
+        <input type="text" placeholder="Result" value="{{ctrl.result}}" readonly>
+        <br>
+        <button class="btn btn-success">calculate</button>
+    </form>
+    <form ng-submit="ctrl.getCur()">
+        <button  class="btn btn-success">Get rates</button>
+    </form>
+    <form>
+        <table ng-repeat="cur in ctrl.data" class="">
+            <tr>
+                <td>      
+                    {{cur[3]}}
+                </td>
+                <td>      
+                    :&emsp;{{cur[2]}}
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
