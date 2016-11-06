@@ -21,7 +21,7 @@ angular.module('myApp.view4', ['ngRoute'])
             self.data = [];
 
             self.getCur = function () {
-                $http.get('api/demoall/rate')
+                $http.get('api/currency/rate')
                         .success(function (data, status, headers, config) {
                             self.data = data;
                             console.log(data);
