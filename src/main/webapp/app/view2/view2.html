@@ -2,3 +2,65 @@
 <div>
   <p>Data from server (Users ONLY) <b style="color: darkblue">{{data}}</b></p>
 </div>
+<h4>Hvem gjorde hvad:</h4>
+Vi har allesammen arbejdet med alle de forskellige værktøjer som f.eks. API,<br>
+HTML, Angular og databaser. Vi føler alle har gjort et stykke arbejde for, at få<br>
+dette projekt igennem og hjulpet hinanden med de ting de har haft problemer med<br>
+og fået folk igennem deres svage sider. Derfor mener vi alle har fortjent fuldt studypoint.<br>
+Måden vi fik delt arbejdet ud på, var at vi spurgte hvad folk ville arbejde med.<br>
+Efter noget tid gjorde vi, at man fik prøvet noget andet. Hvis man fik problemer,<br>
+spurgte man i gruppen og så om en fra gruppen, havde prøvet at arbejde med problemet<br>
+der var opstået. På denne måde var vores arbejde ”individuelt”, men vi sad stadig<br>
+som en gruppe, og fik hinanden igennem de punkter vi fandt svære.<br>
+Med git lavede vi en branch for hver ”emne” som vi arbejdede med. Vi mergede det<br>
+så ind i masterbranchen, når vi følte vores del af koden virkede.<br>
+Når koden var merget ind i masterbranchen, blev den branch der var arbejdet på slettet.<br>
+Der blev derefter oprettet en ny branch man kunne arbejde i. På denne måde endte<br>
+vi ikke med at folk havde pushet noget op på master branchen, og gjorde at nogle<br>
+af de andre ting i koden stoppede med at virke, og vi fik merge conflicts.<br>
+<br>
+<h4>Company info:</h4>
+Vi har lavet et UI til users, så de kan finde det company de leder efter.<br>
+Man indtaster sit søgord og trykker "slå op", man får så et table med alt dataen<br>
+på det søgte company. Nederst kan man vælge productunit og få dataen<br>
+på den valgte unit. Der er også sat en tilbage knap ind, så man kan komme<br>
+tilbage til company info.<br>
+<br>
+<h4>Exchange Rate:</h4>
+På denne side kan man se alle rates, på de currencies vi får fra API'en.<br>
+Filen "XmlReaderDemo" i Source Packages.utils skal køres for at få dataen i databasen<br> 
+For at vi kan få dem udskrevet og bruge calculatoren på siden, skal "get rates"<br>
+trykkes på først. Derefter kan man vælge hvilken currency man vil veksle fra, <br>
+og hvilken currency man vil veksle til og hvor mange penge man vil veksle.<br>
+Derefter klikker man calculate, og får hvor mange man får af den vekslede valuta.<br>
+<br>
+<h4>All users:</h4>
+All users kan kun ses af admin og giver mulighed for, at se alle users som kan<br>
+bruges på siden og ligger i databasen. Admins kan også slette brugerne fra siden/databasen.<br>
+Efter useren er deletet vil personen forsvinde fra listen som adminen kan se.<br>
+<br>
+<h4>Create user:</h4>
+Denne metode opretter en user og kigger på, om en user med det username allerede<br>
+er i databasen. Hvis dette er tilfældet vil brugeren ikke blive oprettet.<br>
+Hvis der derimod ikke eksistere en bruger i databasen med det valgte username,<br>
+vil useren blive smidt i databasen med "user" som "role". Derefter vil useren<br>
+være mulig at bruge til at logge ind med.<br>
+<br>
+<h4>Test</h4>
+Vi prøvede at lave rest test men de gav fejl. Alle vores JUNIT tests virker<br>
+og giver rigtigt<br>
+<h5>Createuser:</h5>
+Denne test tester vores metode createUser() i vores UserFacade. Metoden tager imod<br>
+username og password, og kigger så på om usernamet er i brug. Hvis usernamet<br>
+ikke er i brug, vil metoden oprette et user objekt med dataen og give den en ”role”.<br>
+Denne role vil altid være ”User”. Efter metoden har kørt, vil den returnere<br>
+user objektet med user rolen.<br>
+<h5>Deleteuser:</h5>
+Vores metode deleteUserById() fjerner en user fra vores database med det givne ID.<br>
+I denne opgave er username sat som vores ID, så metoden gør det ud fra username.<br>
+Metoden leder i databasen efter en user med det valgte username, og fjerner derefter<br>
+den user fra databasen. Metoden returnerer derefter den slettede user.<br>
+<h5>GetAllUsers:</h5>
+Metoden getAllUsers() henter alle users i databasen og returnerer dem som en liste<br>
+af user objects. Vi tester ved at oprette en user med vores createUser(), hvor vi<br>
+derefter henter listen med users og ser om useren vi har oprettet ligger i listen.
